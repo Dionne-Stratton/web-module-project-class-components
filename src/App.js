@@ -3,7 +3,7 @@ import TodoList from "./components/TodoList";
 import TodoForm from "./components/TodoForm";
 import "./components/Todo.css";
 
-const stuffToDo = [
+const toDoArray = [
   {
     task: "Sleep",
     id: 1,
@@ -35,14 +35,13 @@ class App extends React.Component {
   constructor() {
     super();
     this.state = {
-      stuffToDo: stuffToDo,
-      anotherStateProp: "",
+      toDoArray: toDoArray,
     };
   }
 
   toggleItem = (id) => {
     this.setState({
-      stuffToDo: this.state.stuffToDo.map((item) => {
+      toDoArray: this.state.toDoArray.map((item) => {
         if (item.id === id) {
           return {
             ...item,
@@ -57,7 +56,7 @@ class App extends React.Component {
 
   clearDone = () => {
     this.setState({
-      stuffToDo: this.state.stuffToDo.filter((item) => !item.done),
+      toDoArray: this.state.toDoArray.filter((item) => !item.done),
     });
   };
 
@@ -68,7 +67,7 @@ class App extends React.Component {
       done: false,
     };
     this.setState({
-      stuffToDo: [...this.state.stuffToDo, newItem],
+      toDoArray: [...this.state.toDoArray, newItem],
     });
   };
 
@@ -82,7 +81,7 @@ class App extends React.Component {
         <TodoList
           toggleItem={this.toggleItem}
           clearDone={this.clearDone}
-          stuffToDo={this.state.stuffToDo}
+          toDoArray={this.state.toDoArray}
         />
       </div>
     );

@@ -6,7 +6,7 @@ class TodoForm extends React.Component {
     this.state = {
       itemText: "",
     };
-  }
+  };
   handleChanges = (e) => {
     this.setState({
       itemText: e.target.value,
